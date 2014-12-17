@@ -13,3 +13,4 @@ with con:
     cur.execute("INSERT INTO Cars VALUES(4,'Volvo',29000)")
     cur.execute("INSERT INTO Cars VALUES(5,'Bentley',350000)")
     print "Data Inserted!"
+
