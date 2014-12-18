@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+    <head>
+        <link href="{% static 'css/bootstrap-fluid-adj.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+        <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+        <title> SeedStars - {% block title %} {% endblock %} </title>
+    </head>
+
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
+                    <li><a href="{% url 'ss_index' %}">Home</a></li>
+                    <li><a href="{% url 'ss_list' %}">List</a></li>
+                    <li><a href="{% url 'ss_add' %}">Add</a></li>
+                </ul>
+            </div>
+        
+            <div class="container-fluid">
+                <div class="span9">
+                    {% block body_block %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <div class="container">
+                <p>&copy; Seedstar Django app - Joao Pedro Mano Brito (joao.mano.brito@gmail.com)</p>
+            </div>
+        </footer>
+
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </body>
+
+</html>
