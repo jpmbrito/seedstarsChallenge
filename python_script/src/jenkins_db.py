@@ -22,8 +22,8 @@ class Jenkins_Jobs:
             with self.db_con:
                 self.db_con.cursor().execute(
                         """CREATE TABLE Jenkins_Jobs(
-                        id INT PRIMARY KEY,
-                        name TEXT UNIQUE,
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        name TEXT UNIQUE NOT NULL,
                         status TEXT,
                         last_update DATETIME DEFAULT(STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW')))""")
         except:
@@ -35,20 +35,34 @@ class Jenkins_Jobs:
                     "DROP TABLE IF EXISTS Jenkins_Jobs")
 
     def store_job(self, job):
+        if self.create_job(job) is False:
+            self.update_job(job)
+
+    def create_job(self, job):
         try:
             with self.db_con:
                 self.db_con.cursor().execute(
-                        """INSERT INTO jenkins_jobs(name,status) 
+                        """INSERT INTO jenkins_jobs(name,status)
                         VALUES(?,?)""",
                         (job.name, job.status,) )
         except:
+            return False;
+
+        return True;
+
+    def update_job(self, job):
+        try:
             with self.db_con:
                 self.db_con.cursor().execute(
-                        """UPDATE jenkins_jobs 
-                        SET status = ? , 
+                        """UPDATE jenkins_jobs
+                        SET status = ? ,
                         last_update = STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW')
                         WHERE name = ?""",
                         (job.status, job.name,) )
+        except:
+            return False;
+        
+        return True;
 
     def __str__(self):
         ret_str = ""
@@ -57,6 +71,6 @@ class Jenkins_Jobs:
             
             for row in self.db_con.cursor().execute("""
                     SELECT * FROM jenkins_jobs""").fetchall():
-                        ret_str = "{0}{1}".format(ret_str,row)
+                        ret_str = "{0}\n{1}".format(ret_str,row)
 
         return ret_str
