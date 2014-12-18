@@ -1,0 +1,16 @@
+{% extends 'seedstars/base.html' %}
+
+{% block title %} List Seedstars Users {% endblock %}
+
+{% block body_block %}
+
+    <div class="hero-unit">
+        <h1> Seedstars Users </h1>
+
+            {% for seedstarUser in object_list %}
+                <li>{{ seedstarUser.name}} , {{ seedstarUser.email}}</li>
+            {% endfor %}            
+
+    </div>
+
+{% endblock %}
