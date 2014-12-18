@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, url
-from seedstars import views
+from seedstars.views import *
 
-urlpatterns = patterns(
+urlpatterns = patterns('',
                     url(r'^$', 
-                        views.index,
+                        IndexView.as_view(),
                         name="ss_index"),
                     url(r'^list/', 
                         SeedStarsUser_List.as_view(),

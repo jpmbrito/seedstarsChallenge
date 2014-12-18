@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(__file__)
 
 #PATH's section
 PROJECT_PATH = os.path.join(BASE_DIR, os.pardir)
@@ -88,3 +88,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Template Directory
+TEMPLATE_DIRS = (
+    TEMPLATE_PATH,
+)
