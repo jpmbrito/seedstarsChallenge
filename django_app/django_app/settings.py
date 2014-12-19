@@ -89,6 +89,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
 # Template Directory
 TEMPLATE_DIRS = (
     TEMPLATE_PATH,

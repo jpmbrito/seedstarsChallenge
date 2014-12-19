@@ -4,8 +4,7 @@
 
 {% block body_block %}
 
-    <div class="hero-unit">
-        <h1> Add a Seedstar User </h1>
+        <h1> Register User </h1>
 
         <div class="container">
             
@@ -17,18 +16,18 @@
                 {% endfor %}
 
                 {% for field in form.visible_fields %}
-                    {{ field.errors }}
                     {{ field.help_text }}
-                    {{ field }}
+                    {{ field }} 
+                    {{ field.errors }}
+                    <br>
                 {% endfor %}
 
 
-                <button class="btn btn-primary" type="submit" name="submit">Add a Seedstar User</button>
+                <button class="btn btn-primary" type="submit" name="submit">Create User</button>
 
             </form>
 
         </div>
 
-    </div>
 
 {% endblock %}

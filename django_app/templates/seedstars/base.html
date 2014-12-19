@@ -15,28 +15,32 @@
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
+                <ul class="nav pull-left">
                     <li><a href="{% url 'ss_index' %}">Home</a></li>
                     <li><a href="{% url 'ss_list' %}">List</a></li>
                     <li><a href="{% url 'ss_add' %}">Add</a></li>
                 </ul>
+                <ul class="nav pull-right">
+                    <h5>SeedStars Challenge Application</h5>
+                </ul> 
             </div>
-        
-            <div class="container-fluid">
-                <div class="span9">
-                    {% block body_block %}
-                    {% endblock %}
-                </div>
+        </div>
+
+        <div class="container-fluid">
+             <div class="span9">
+                 {% block body_block %}
+                 {% endblock %}
             </div>
         </div>
 
         <hr>
         <footer>
             <div class="container">
-                <p>&copy; Joao Pedro Mano Brito (joao.mano.brito@gmail.com)</p>
+                <p>&copy; Joao Pedro Mano Brito (joao.mano.brito@gmail.com) - Seedstars Challenge</p>
             </div>
         </footer>
 
+        <script src="{% static 'js/jquery.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </body>
 
