@@ -1,6 +1,6 @@
 seedstarsChallenge
 ==================
-This repository contains all the source code of a challenge proposed by the company seedstars.
+This repository contains all the source code of a challenge proposed for seedstars company.
 The main tree of this diretory is composed by two diferent folders:
 
 * python_script - The python script challenge;
